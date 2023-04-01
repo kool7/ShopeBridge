@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ShopBridge.Contracts.Products;
 using ShopBridge.Data;
+using ShopBridge.Middleware;
 using ShopBridge.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.ConfigureExceptionMiddleware();
 
 app.UseHttpsRedirection();
 

@@ -11,11 +11,13 @@ public class ProductsController : ControllerBase
 {
     private readonly IProductRepository _productRepository;
     private readonly IMapper _mapper;
+    private readonly ILogger _logger;
 
-    public ProductsController(IProductRepository productRepository, IMapper mapper)
+    public ProductsController(IProductRepository productRepository, IMapper mapper, ILogger logger)
     {
         _productRepository = productRepository;
         _mapper = mapper;
+        _logger = logger;
     }
 
     [HttpGet]
